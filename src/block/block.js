@@ -16,7 +16,7 @@ const { Fragment } = wp.element;
 const { InspectorControls } = wp.editor;
 const { PanelBody } = wp.components;
 
-const aos = 'whatever';
+let aos = '';
 
 const addDropdownControls = createHigherOrderComponent( BlockEdit => {
 	return props => {
@@ -25,10 +25,10 @@ const addDropdownControls = createHigherOrderComponent( BlockEdit => {
 				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody>
+						<p>AOS Attribute</p>
 						<select
 							onChange={ e => {
-								props.setAttributes( { aos: e.target.value } );
-								console.log( props );
+								aos = e.target.value;
 							} }
 						>
 							<option value="fade-in">Fade in</option>
